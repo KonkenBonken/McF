@@ -1,6 +1,11 @@
 $block: 3rem;
+$distance: $block * 50;
 $dayTime: 10s;
 $animationOptions: $dayTime ease-out infinite alternate;
+@mixin distance($mult:1) {
+  $dist: $distance/$mult/100;
+  transform: translateZ(-$dist) scale(($distance - $dist) / $distance);
+}
 
 * {
   margin: 0;
@@ -27,6 +32,7 @@ sky {
   top: 0;
   z-index: -3;
   animation: sky $animationOptions;
+  @include distance(6);
 }
 @mixin block {
   width: 100%;
@@ -35,7 +41,20 @@ sky {
   left: 0;
   animation: ambientLight $animationOptions;
   z-index: -1;
+  @include distance(2);
 }
+
+grass {
+  $length: 2;
+  width: 100%;
+  height: $length * $block;
+  background: repeat 0/0 url('textures/grass.webp');
+  top: calc(80vh - #{$block - $length * $block});
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  background-size: $block $block;
+}
+
 grassblock {
   @include block;
   height: $block;
@@ -59,7 +78,7 @@ sun {
   left: calc(50% - 6rem);
   animation: sun $animationOptions;
   z-index: -2;
-  // @include distance(6);
+  @include distance(6);
 }
 @keyframes sun {
   0% {

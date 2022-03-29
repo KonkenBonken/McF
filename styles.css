@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   overflow: hidden auto;
   font-size: 1.7vmin;
+  z-index: -5;
 }
 
 sky {
@@ -22,18 +23,29 @@ sky {
   top: 0;
   z-index: -3;
   animation: sky 10s ease-out infinite alternate;
+  transform: translateZ(-0.25rem) scale(0.9983333333);
 }
 
 grass {
   width: 100%;
-  content: "";
+  height: 6rem;
+  background: repeat 0/0 url("textures/grass.webp");
+  top: calc(80vh - -3rem);
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  background-size: 3rem 3rem;
+}
+
+grassblock {
+  width: 100%;
   display: block;
   position: fixed;
   left: 0;
   animation: ambientLight 10s ease-out infinite alternate;
   z-index: -1;
+  transform: translateZ(-0.75rem) scale(0.995);
   height: 3rem;
-  background: repeat 0/3rem url("textures/grass.webp");
+  background: repeat-x 0/3rem url("textures/grassblock.webp");
   top: 80vh;
 }
 
@@ -44,8 +56,9 @@ dirt {
   left: 0;
   animation: ambientLight 10s ease-out infinite alternate;
   z-index: -1;
-  top: calc(80vh + 3rem);
-  height: calc(100%);
+  transform: translateZ(-0.75rem) scale(0.995);
+  top: 80vh;
+  height: 100%;
   background: repeat top left 0/3rem url("textures/dirt.webp");
 }
 
@@ -58,6 +71,7 @@ sun {
   left: calc(50% - 6rem);
   animation: sun 10s ease-out infinite alternate;
   z-index: -2;
+  transform: translateZ(-0.25rem) scale(0.9983333333);
 }
 
 @keyframes sun {
