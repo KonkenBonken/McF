@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   overflow: hidden auto;
   font-size: 1.7vmin;
+  z-index: -5;
 }
 
 sky {
@@ -24,16 +25,15 @@ sky {
   animation: sky 10s ease-out infinite alternate;
 }
 
-grass {
+grassblock {
   width: 100%;
-  content: "";
   display: block;
   position: fixed;
   left: 0;
   animation: ambientLight 10s ease-out infinite alternate;
   z-index: -1;
   height: 3rem;
-  background: repeat 0/3rem url("textures/grass.webp");
+  background: repeat-x 0/3rem url("textures/grassblock.webp");
   top: 80vh;
 }
 
@@ -44,8 +44,8 @@ dirt {
   left: 0;
   animation: ambientLight 10s ease-out infinite alternate;
   z-index: -1;
-  top: calc(80vh + 3rem);
-  height: calc(100%);
+  top: 80vh;
+  height: 100%;
   background: repeat top left 0/3rem url("textures/dirt.webp");
 }
 
