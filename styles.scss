@@ -1,5 +1,5 @@
 $block: 3rem;
-$dayTime: 10s;
+$dayTime: 30s;
 $animationOptions: $dayTime ease-out #{-$dayTime} infinite alternate;
 
 * {
@@ -36,6 +36,7 @@ sky {
   animation: ambientLight $animationOptions;
   z-index: -1;
 }
+
 grassblock {
   @include block;
   height: $block;
