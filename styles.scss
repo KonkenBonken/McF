@@ -1,6 +1,6 @@
 $block: 3rem;
 $dayTime: 10s;
-$animationOptions: $dayTime ease-out infinite alternate;
+$animationOptions: $dayTime ease-out #{-$dayTime} infinite alternate;
 
 * {
   margin: 0;
