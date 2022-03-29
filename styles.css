@@ -11,6 +11,7 @@ body {
   overflow: hidden auto;
   font-size: 1.7vmin;
   z-index: -5;
+  perspective: 0;
 }
 
 sky {
