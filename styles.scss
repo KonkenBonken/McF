@@ -1,3 +1,4 @@
+$block: 3rem;
 $dayTime: 10s;
 $animationOptions: $dayTime ease-out infinite alternate;
 
@@ -13,6 +14,7 @@ body {
   min-height: 100vh;
   overflow: hidden auto;
   font-size: 1.7vmin; //16px;
+  z-index: -5;
 }
 
 sky {
@@ -26,30 +28,26 @@ sky {
   z-index: -3;
   animation: sky $animationOptions;
 }
-
-grass {
+@mixin block {
   width: 100%;
-  content: '';
   display: block;
   position: fixed;
   left: 0;
   animation: ambientLight $animationOptions;
   z-index: -1;
-  height: 3rem;
-  background: repeat 0/3rem url('textures/grass.webp');
+}
+grassblock {
+  @include block;
+  height: $block;
+  background: repeat-x 0/#{$block} url('textures/grassblock.webp');
   top: 80vh;
 }
 
 dirt {
-  width: 100%;
-  display: block;
-  position: fixed;
-  left: 0;
-  animation: ambientLight $animationOptions;
-  z-index: -1;
-  top: calc(80vh + 3rem);
-  height: calc(100%);
-  background: repeat top left 0/3rem url('textures/dirt.webp');
+  @include block;
+  top: 80vh;
+  height: 100%;
+  background: repeat top left 0/#{$block} url('textures/dirt.webp');
 }
 
 sun {
@@ -61,6 +59,7 @@ sun {
   left: calc(50% - 6rem);
   animation: sun $animationOptions;
   z-index: -2;
+  // @include distance(6);
 }
 @keyframes sun {
   0% {
