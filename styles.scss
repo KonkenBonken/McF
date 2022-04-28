@@ -1,6 +1,5 @@
-$block: 3rem;
-$dayTime: 30s;
-$animationOptions: $dayTime ease-out #{-$dayTime} infinite alternate;
+@import 'background';
+@import 'signs';
 
 * {
   margin: 0;
@@ -11,102 +10,9 @@ $animationOptions: $dayTime ease-out #{-$dayTime} infinite alternate;
 :root,
 body {
   width: 100vw;
-  min-height: 100vh;
-  overflow: hidden auto;
+  height: 100vh;
+  overflow: hidden;
   font-size: 1.7vmin; //16px;
   z-index: -5;
   perspective: 0;
-}
-
-sky {
-  height: 80vh;
-  width: 100%;
-  background: linear-gradient(#78A7FF, #AAD0FD);
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: -3;
-  animation: sky $animationOptions;
-}
-@mixin block {
-  width: 100%;
-  display: block;
-  position: fixed;
-  left: 0;
-  animation: ambientLight $animationOptions;
-  z-index: -1;
-}
-
-grassblock {
-  @include block;
-  height: $block;
-  background: repeat-x 0/#{$block} url('textures/grassblock.webp');
-  top: 80vh;
-}
-
-dirt {
-  @include block;
-  top: 80vh;
-  height: 100%;
-  background: repeat top left 0/#{$block} url('textures/dirt.webp');
-}
-
-sun {
-  position: fixed;
-  display: block;
-  background: radial-gradient(#FFF, #FFDD6D);
-  width: 12rem;
-  height: 12rem;
-  left: calc(50% - 6rem);
-  animation: sun $animationOptions;
-  z-index: -2;
-  // @include distance(6);
-}
-@keyframes sun {
-  0% {
-    top: 80vh;
-    box-shadow: 0 0 0 0 #0000;
-  }
-
-  25% {
-    top: 80vh;
-    filter: brightness(.7);
-    box-shadow: 0 0 40vw 20vw #ffae6c88;
-  };
-
-  100%,
-  75% {
-    top: 2rem;
-    filter: brightness(2);
-    box-shadow: 0 0 40vw 20vw #FFDD6D88;
-  }
-}
-@keyframes ambientLight {
-  0% {
-    filter: brightness(.3);
-  }
-
-  25% {
-    filter: brightness(.5);
-  };
-
-  100%,
-  75% {
-    filter: brightness(1);
-  }
-}
-@keyframes sky {
-  0% {
-    filter: sepia(0) brightness(.3);
-  }
-
-  25% {
-    filter: sepia(.75) brightness(.5);
-  };
-
-  100%,
-  75% {
-    filter: sepia(0) brightness(1);
-  }
 }

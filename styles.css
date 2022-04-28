@@ -1,19 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root,
-body {
-  width: 100vw;
-  min-height: 100vh;
-  overflow: hidden auto;
-  font-size: 1.7vmin;
-  z-index: -5;
-  perspective: 0;
-}
-
+@import url("http://fonts.cdnfonts.com/css/minecraft-4");
 sky {
   height: 80vh;
   width: 100%;
@@ -46,7 +31,7 @@ dirt {
   animation: ambientLight 30s ease-out -30s infinite alternate;
   z-index: -1;
   top: 80vh;
-  height: 100%;
+  height: 20vh;
   background: repeat top left 0/3rem url("textures/dirt.webp");
 }
 
@@ -64,17 +49,17 @@ sun {
 @keyframes sun {
   0% {
     top: 80vh;
-    box-shadow: 0 0 0 0 #0000;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
   25% {
     top: 80vh;
     filter: brightness(0.7);
-    box-shadow: 0 0 40vw 20vw #ffae6c88;
+    box-shadow: 0 0 40vw 20vw rgba(255, 174, 108, 0.5333333333);
   }
   100%, 75% {
     top: 2rem;
     filter: brightness(2);
-    box-shadow: 0 0 40vw 20vw #FFDD6D88;
+    box-shadow: 0 0 40vw 20vw rgba(255, 221, 109, 0.5333333333);
   }
 }
 @keyframes ambientLight {
@@ -99,3 +84,53 @@ sun {
     filter: sepia(0) brightness(1);
   }
 }
+signs {
+  position: absolute;
+  height: 100vh;
+  width: 80vw;
+  left: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+signs > a {
+  height: 10rem;
+  overflow: hidden;
+  aspect-ratio: 3/1;
+  background: repeat 0/39.1% url("textures/oakplanks.webp");
+  color: #000;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-family: "Minecraft", sans-serif;
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5333333333);
+}
+@media (min-aspect-ratio: 1/1) {
+  signs > a {
+    align-self: flex-end;
+  }
+  signs > a:nth-child(2n) {
+    box-shadow: -1rem 1rem 3rem rgba(0, 0, 0, 0.5333333333);
+    align-self: flex-start;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 1.7vmin;
+  z-index: -5;
+  perspective: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
