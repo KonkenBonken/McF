@@ -129,9 +129,13 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-size: 1.7vmin;
+  font-size: 1.7vh;
   z-index: -5;
   perspective: 0;
 }
-
-/*# sourceMappingURL=styles.css.map */
+@media (max-aspect-ratio: 1/2) {
+  :root,
+body {
+    font-size: 3vw;
+  }
+}

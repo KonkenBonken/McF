@@ -11,7 +11,11 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-size: 1.7vmin; //16px;
+  font-size: 1.7vh;
   z-index: -5;
   perspective: 0;
+
+  @media (max-aspect-ratio: 1/2) {
+    font-size: 3vw;
+  }
 }
