@@ -11,6 +11,13 @@ req.then(res => {
       if (playerList.length > 0) {
         const tablist = document.createElement('tablist');
 
+        const header = document.createElement('div'),
+          headerText = document.createElement('p');
+        headerText.innerText = playerList.length + ' spelare online nu';
+
+        header.append(headerText);
+        tablist.append(header);
+
         for (const player of playerList) {
           if (!(
             'name' in player && 'uuid' in player

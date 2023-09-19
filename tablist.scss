@@ -22,7 +22,15 @@ tablist {
       color: #fff;
       font-family: 'Minecraft', sans-serif;
       font-size: 1.5rem;
-      line-height: 1;
+      line-height: 0.75;
+    }
+
+    &:first-of-type {
+      margin-bottom: 0.5rem;
+
+      > p {
+        grid-area: 1 / 1 / 1 / 3;
+      }
     }
   }
 }

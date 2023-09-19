@@ -141,7 +141,13 @@ tablist > div > p {
   color: #fff;
   font-family: "Minecraft", sans-serif;
   font-size: 1.5rem;
-  line-height: 1;
+  line-height: 0.75;
+}
+tablist > div:first-of-type {
+  margin-bottom: 0.5rem;
+}
+tablist > div:first-of-type > p {
+  grid-area: 1/1/1/3;
 }
 
 * {
