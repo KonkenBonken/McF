@@ -1,0 +1,28 @@
+tablist {
+  position: fixed;
+  left: 50vw;
+  translate: -50%;
+  background-color: #0008;
+
+  > div {
+    height: 1.5rem;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: .25rem;
+    margin: .15rem;
+
+    > img {
+      height: 1.6rem;
+      width: 1.6rem;
+      margin: -.05rem;
+    }
+
+    > p {
+      display: inline-block;
+      color: #fff;
+      font-family: 'Minecraft', sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+  }
+}

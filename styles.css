@@ -118,6 +118,32 @@ signs > a {
   }
 }
 
+tablist {
+  position: fixed;
+  left: 50vw;
+  translate: -50%;
+  background-color: rgba(0, 0, 0, 0.5333333333);
+}
+tablist > div {
+  height: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0.25rem;
+  margin: 0.15rem;
+}
+tablist > div > img {
+  height: 1.6rem;
+  width: 1.6rem;
+  margin: -0.05rem;
+}
+tablist > div > p {
+  display: inline-block;
+  color: #fff;
+  font-family: "Minecraft", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -133,5 +159,3 @@ body {
   z-index: -5;
   perspective: 0;
 }
-
-/*# sourceMappingURL=styles.css.map */
