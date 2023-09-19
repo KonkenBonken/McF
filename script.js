@@ -5,19 +5,31 @@ req.then(res => {
     return;
 
   res.json()
-    .then(async (/** @type unknown */json) => {
-      if (!(
-        json != null && typeof json === 'object'
-        && 'online' in json && 'players' in json
-      )) return;
+    .then(async json => {
+      const playerList = json?.players?.list || [];
 
-      const { online, players } = json;
+      if (playerList.length > 0) {
+        const tablist = document.createElement('tablist');
 
-      if (!(
-        typeof online === 'boolean' && online
-        && players != null && typeof players === 'object'
-      )) return;
+        for (const player of playerList) {
+          if (!(
+            'name' in player && 'uuid' in player
+          )) continue;
 
-      const playerList = 'list' in players && Array.isArray(players.list) ? players.list : [];
-  });
+          const div = document.createElement('div');
+          tablist.append(div);
+
+          const p = document.createElement('p');
+          p.innerText = player.name;
+
+          const img = document.createElement('img');
+          img.src = `https://mc-heads.net/avatar/${player.uuid}/20`;
+
+          div.append(img, p);
+        }
+
+        document.body.append(tablist);
+      }
+      console.log(json)
+    });
 });
