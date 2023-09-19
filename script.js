@@ -36,7 +36,7 @@ req.then(res => {
           p.innerText = player.name;
 
           const img = document.createElement('img');
-          img.src = `https://mc-heads.net/avatar/${player.uuid}/20`;
+          img.src = `https://mc-heads.net/avatar/${player.uuid}/64`;
 
           div.append(img, p);
         }
