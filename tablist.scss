@@ -1,8 +1,30 @@
+$loadTime: .7s;
+
 tablist {
   position: fixed;
   left: 50vw;
   translate: -50%;
   background-color: #0008;
+  animation: loading-tablist 0s $loadTime both;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    border: #0000 solid .25rem;
+    border-top-color: #fff;
+    box-sizing: border-box;
+    animation: loading-spinner $loadTime forwards cubic-bezier(.24, .66, .74, .40);
+    left: 50%;
+    translate: -50%;
+  }
+  
+  > div, > div > * {
+    animation: loading-reveal 0s $loadTime both;
+  }
 
   > div {
     height: 1.5rem;
@@ -37,5 +59,27 @@ tablist {
   @media (max-aspect-ratio: 1/1) {
     left: 0;
     translate: 0;
+  }
+}
+
+@keyframes loading-reveal {
+  from {
+    scale: 1 0;
+  }
+}
+
+@keyframes loading-tablist {
+  from {
+    max-height: 2rem;
+  }
+}
+
+@keyframes loading-spinner {
+  99% {
+    rotate: 1.7turn;
+    display: block;
+  }
+  to {
+    display: none;
   }
 }
