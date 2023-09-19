@@ -6,17 +6,23 @@ req.then(res => {
 
   res.json()
     .then(async json => {
+      if (!json?.online)
+        return;
+
       const playerList = json?.players?.list || [];
 
-      if (playerList.length > 0) {
-        const tablist = document.createElement('tablist');
+      const tablist = document.createElement('tablist');
+      document.body.append(tablist);
 
-        const header = document.createElement('div'),
-          headerText = document.createElement('p');
+      const header = document.createElement('div'),
+        headerText = document.createElement('p');
+      header.append(headerText);
+      tablist.append(header);
+
+      if (playerList.length === 0) {
+        headerText.innerText = 'Serverstatus: online';
+      } else {
         headerText.innerText = playerList.length + ' spelare online nu';
-
-        header.append(headerText);
-        tablist.append(header);
 
         for (const player of playerList) {
           if (!(
@@ -34,9 +40,6 @@ req.then(res => {
 
           div.append(img, p);
         }
-
-        document.body.append(tablist);
       }
-      console.log(json)
     });
 });
