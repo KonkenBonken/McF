@@ -33,4 +33,9 @@ tablist {
       }
     }
   }
+
+  @media (max-aspect-ratio: 1/1) {
+    left: 0;
+    translate: 0;
+  }
 }

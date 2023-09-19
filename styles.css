@@ -149,6 +149,12 @@ tablist > div:first-of-type {
 tablist > div:first-of-type > p {
   grid-area: 1/1/1/3;
 }
+@media (max-aspect-ratio: 1/1) {
+  tablist {
+    left: 0;
+    translate: 0;
+  }
+}
 
 * {
   margin: 0;
